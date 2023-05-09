@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-extension'
 }
+
 
 android {
     namespace 'com.example.jectpack_library'
