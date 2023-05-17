@@ -1,20 +1,23 @@
-package com.example.viewbinding
+package com.example.viewbinding.ex
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.example.viewbinding.R
 import com.example.viewbinding.databinding.ActivityMainBinding
+import com.example.viewbinding.databinding.ActivityViewBindingBinding
 
-class MainActivity : AppCompatActivity() {
+class ViewBindingActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityViewBindingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        binding = ActivityViewBindingBinding.inflate(layoutInflater)
+
         val view = binding.root
         setContentView(view)
 
@@ -38,19 +41,11 @@ class MainActivity : AppCompatActivity() {
         array.add("a")
         array.add("a")
 
-        val customAdapter = CustomAdapter(array)
+        val customViewadapter = CustomViewadapter(array)
 
-        val rv = findViewById<RecyclerView>(R.id.rv)
-        rv.adapter = customAdapter
+        val rv = binding.rv
+
+        rv.adapter = customViewadapter
         rv.layoutManager = LinearLayoutManager(this)
-
-        /*
-        binding.testText.text = "변경된 텍스트"
-
-        binding.testText.setOnClickListener{
-            val intent = Intent(this,Second_Activity::class.java)
-            startActivity(intent)
-            */
     }
-    }
-
+}
