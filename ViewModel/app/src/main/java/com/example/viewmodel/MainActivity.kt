@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 
 //안드로이드 샘영 주기를 관리를 관리하기 쉽다.
@@ -16,10 +18,16 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private var count = 0
+    // private var count = 0
+    lateinit var viewModel : MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //ViewModel 연결
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
 
         Log.d("MainActivity","onCreate")
 
@@ -28,16 +36,20 @@ class MainActivity : AppCompatActivity() {
 
         val result_text : TextView = findViewById(R.id.result)
 
+        result_text.text = viewModel.countValue.toString()
         plusBtn.setOnClickListener{
-            count++
-
-            result_text.text = count.toString()
+            // count++
+            // result_text.text = count.toString()
+            viewModel.plus()
+            result_text.text = viewModel.countValue.toString()
         }
 
         minusBtn.setOnClickListener {
-            count--
+            //count--
 
-            result_text.text = count.toString()
+            //result_text.text = count.toString()
+            viewModel.minus()
+            result_text.text = viewModel.countValue.toString()
         }
     }
 
