@@ -19,12 +19,14 @@ import androidx.lifecycle.ViewModelProvider
 class MainActivity : AppCompatActivity() {
 
     // private var count = 0
-    lateinit var viewModel : MainViewModel
+    // lateinit var viewModel : MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        /*
         //ViewModel 연결
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
@@ -82,5 +84,7 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("MainActivity","onDestroy")
     }
+    */
 
+    }
 }
