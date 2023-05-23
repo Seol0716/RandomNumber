@@ -26,7 +26,7 @@ class TestFragment2 : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragmenttext2,container,false)
         binding.fragmentText.text = viewModel.getCount().toString()
-        
+
         return binding.root
     }
     }

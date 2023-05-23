@@ -21,24 +21,35 @@ import com.example.viewmodel.databinding.ViewmodeltestBinding
 
 //ViewModel -> activity와 fragment의 공유
 //Fragment 값을 viewModel을 사용하여 유지하기 위해서
+
+
+//ViewModel Factory
 class MainActivity : AppCompatActivity() {
 
     // private var count = 0
     // lateinit var viewModel : MainViewModel
-    lateinit var binding : ViewmodeltestBinding
+    // lateinit var binding : ViewmodeltestBinding
     lateinit var viewModel: MainViewModel
+
+    lateinit var viewModelFactory : MainViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.viewmodeltest)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        setContentView(R.layout.viewmodelfactorytest)
+
+        viewModelFactory = MainViewModelFactory(5000)
+        viewModel = ViewModelProvider(this,viewModelFactory).get(viewModel::class.java)
+
+       // binding = DataBindingUtil.setContentView(this,R.layout.viewmodeltest)
+       // viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         //-
-        binding.minus.setOnClickListener {
-            viewModel.minus()
-            binding.count.text = viewModel.getCount().toString()
-        }
+        //binding.minus.setOnClickListener {
+         //   viewModel.minus()
+         //   binding.count.text = viewModel.getCount().toString()
+        // }
 
+        /*
         //+
         binding.plus.setOnClickListener {
             viewModel.plus()
@@ -115,5 +126,6 @@ class MainActivity : AppCompatActivity() {
     }
     */
 
+         */
     }
 }

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 
-/*
+
 class ActivityMain : AppCompatActivity() {
 
     val manager = supportFragmentManager
@@ -20,5 +20,5 @@ class ActivityMain : AppCompatActivity() {
         transaction.commit()
     }
 }
-*/
+
 
