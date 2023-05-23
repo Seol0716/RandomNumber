@@ -12,21 +12,22 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.viewmodel.databinding.FragmentTextBinding
 
+
 class TextFragment : Fragment() {
 
     private lateinit var binding : FragmentTextBinding
     var countValue = 0
 
-    private lateinit var viewModel: MainViewModel
+     private lateinit var viewModel: MainViewModel
 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d("TextFragment","onAttach")
+       // Log.d("TextFragment","onAttach")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("TextFragment","onCreate")
+        //Log.d("TextFragment","onCreate")
 
     }
 
@@ -44,16 +45,16 @@ class TextFragment : Fragment() {
         binding.plus.setOnClickListener {
             viewModel.plus()
             binding.count.text = viewModel.getCount().toString()
-         //   countValue++
-         //   binding.count.text = countValue.toString()
+           countValue++
+           binding.count.text = countValue.toString()
         }
 
         binding.minus.setOnClickListener {
 
             viewModel.minus()
             binding.count.text = viewModel.getCount().toString()
-         //   countValue--
-         //   binding.count.text = countValue.toString()
+            countValue--
+          binding.count.text = countValue.toString()
         }
 
         return binding.root
@@ -80,3 +81,4 @@ class TextFragment : Fragment() {
         Log.d("TextFragment","onDestroyView")
     }
 }
+

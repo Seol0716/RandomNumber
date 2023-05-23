@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.viewmodel.databinding.ViewmodeltestBinding
 
-
+//VeiwModel
 //안드로이드 샘영 주기를 관리를 관리하기 쉽다.
 //onSaveInstanceState()를 사용해서 데이터를 관리할 수 있지만 소량의 데이터를 위주로 사용하는게 쉽다.
 //ViewModel은 대량의 데이터를 사용하기에 적합하고 상태 변환 있을때마다 관리하기 편하다.
@@ -16,16 +18,43 @@ import androidx.lifecycle.ViewModelProvider
 //ViewModel은 ViewModel scope에서 생명주기 전체를 관리한다.
 
 
+
+//ViewModel -> activity와 fragment의 공유
+//Fragment 값을 viewModel을 사용하여 유지하기 위해서
 class MainActivity : AppCompatActivity() {
 
     // private var count = 0
     // lateinit var viewModel : MainViewModel
+    lateinit var binding : ViewmodeltestBinding
+    lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,R.layout.viewmodeltest)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        //-
+        binding.minus.setOnClickListener {
+            viewModel.minus()
+            binding.count.text = viewModel.getCount().toString()
+        }
 
+        //+
+        binding.plus.setOnClickListener {
+            viewModel.plus()
+            binding.count.text = viewModel.getCount().toString()
+        }
+
+        //fragment 나오기
+        val manager = supportFragmentManager
+
+        binding.showfragment.setOnClickListener {
+            val transaction = manager.beginTransaction()
+            val fragment = TestFragment2()
+            transaction.replace(R.id.frame,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
         /*
         //ViewModel 연결
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
