@@ -1,1 +1,2 @@
 
+LiveData 연습
