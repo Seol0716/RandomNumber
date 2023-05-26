@@ -1,4 +1,4 @@
-카운트 앱 만들기
+1.카운트 앱 만들기
 
 사용기술 LiveData, ViewModel, DataBinding, Transformations(map,switch)
 
@@ -12,4 +12,5 @@ Map의 리턴값은 LiveData의 값을 반환하며 Switch는 LiveData 자체를
 
 ++++++
 여기서 실험을 해보기 위해 Map과 Switch의 plus과 gob를 별도로 공부하기 위해 만들어봤다.
+
 
