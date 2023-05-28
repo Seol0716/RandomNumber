@@ -20,21 +20,72 @@ class MainActivity : AppCompatActivity() {
     //WorkManager
 
     //Simple Retrofit 예제
+    //retrofit 비동기적 실행
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//
+//        //비동기적
+//        val api1 = RetrofitInstance.getInstance().create(MyApi::class.java)
+//
+//        api.getPost1().enqueue(object : retrofit2.Callback<Post> {
+//
+//            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+//                Log.d("API1", response.body().toString())
+//            }
+//
+//            override fun onFailure(call: Call<Post>, t: Throwable) {
+//                Log.d("API1", "fail")
+//            }
+//        })
+//
+//        //number 인덱스 4번째에 있는 uid,id,title, body 등 모든 정보를 보여줌
+//        api.getPostNumber(4).enqueue(object : retrofit2.Callback<Post> {
+//
+//            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+//                Log.d("API2", response.body().toString())
+//            }
+//
+//            override fun onFailure(call: Call<Post>, t: Throwable) {
+//                Log.d("API2", "fail")
+//            }
+//        })
+//
+//        api.getId(20).enqueue(object : retrofit2.Callback<Post>{
+//            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+//
+//                Log.d("API3",response.body().toString())
+//
+//            }
+//
+//            override fun onFailure(call: Call<Post>, t: Throwable) {
+//                Log.d("API3", "fail")
+//            }
+//        })
 
 
+        //동기적 예제
+        val api2 = RetrofitInstance.getInstance().create(MyApi::class.java)
 
-        val api = RetrofitInstance.getInstance().create(MyApi::class.java)
-
-
-        api.getPost1().enqueue(object : retrofit2.Callback<Post> {
+        api2.getPost1().enqueue(object : retrofit2.Callback<Post> {
 
             override fun onResponse(call: Call<Post>, response: Response<Post>) {
                 Log.d("API1", response.body().toString())
+
+
+                //number 인덱스 4번째에 있는 uid,id,title, body 등 모든 정보를 보여줌
+                api2.getPostNumber(4).enqueue(object : retrofit2.Callback<Post> {
+
+                    override fun onResponse(call: Call<Post>, response: Response<Post>) {
+                        Log.d("API2", response.body().toString())
+                    }
+
+                    override fun onFailure(call: Call<Post>, t: Throwable) {
+                        Log.d("API2", "fail")
+                    }
+                })
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
@@ -42,16 +93,31 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        api.getPostNumber(3).enqueue(object : retrofit2.Callback<Post> {
 
-            override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                Log.d("API1", "sucess!")
-            }
-
-            override fun onFailure(call: Call<Post>, t: Throwable) {
-                Log.d("API1", "fail")
-            }
-        })
+//
+//        //number 인덱스 4번째에 있는 uid,id,title, body 등 모든 정보를 보여줌
+//        api2.getPostNumber(4).enqueue(object : retrofit2.Callback<Post> {
+//
+//            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+//                Log.d("API2", response.body().toString())
+//            }
+//
+//            override fun onFailure(call: Call<Post>, t: Throwable) {
+//                Log.d("API2", "fail")
+//            }
+//        })
+//
+//        api2.getId(20).enqueue(object : retrofit2.Callback<Post>{
+//            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+//
+//                Log.d("API3",response.body().toString())
+//
+//            }
+//
+//            override fun onFailure(call: Call<Post>, t: Throwable) {
+//                Log.d("API3", "fail")
+//            }
+//        })
 
     }
 }
