@@ -1,8 +1,10 @@
 package com.example.retrofit
 
+import android.database.DatabaseUtils
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.retrofit.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Response
 
@@ -11,6 +13,7 @@ import javax.security.auth.callback.Callback
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
 
     //Retrofit Server
     //데이터를 받아올때 Server(Retrofit2) 나 LocalDB(Room)
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding  = DataBindingUtil.setContentView(this,)
 
 //
 //        //비동기적
