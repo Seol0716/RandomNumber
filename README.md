@@ -17,5 +17,3 @@
  
  8.Retrofit 구조변경
  
-
-https://www.inflearn.com/course/%EC%B9%9C%EC%A0%88%ED%95%9C-jetpack-1/dashboard
