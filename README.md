@@ -1,25 +1,21 @@
-Retrofit2
 
-Retrofit Server에 있는 데이터를 받아와 Log를 찍어 확인을 하였습니다.
+ ****인프런에서 안드로이드 JETPACK 개론 <상>의 동영상을 참고하여 Retrofit 개념을 공부하고 있습니다.****
+ 
+ 1.Retrofit의 대해
+ 
+ 2.Retrofit의 사용법을 알기위한 간단한 예제 1~2
+ 
+ 3.Retrofit의 CallBack Hell
+ 
+ 4.코루틴 개념과 ViewModelScope에 대해
+ 
+ 5.Retrofit 간단한 예제 변경
+ 
+ 6.Retrofit 간단한 예제 변경 + RecyclerView
+ 
+ 7.Retrofit 간단한 예제 변경 + RecyclerView + Glide
+ 
+ 8.Retrofit 구조변경
+ 
 
-RetrofitInstance.kt
-Retrofit을 생성하여 Uri를 작성해 서버와 연결
-
-MyApi.kt
-
-    @GET("posts/1")
-    fun getPost1() : Call<Post>
-    
-    post1에 있는 데이터를 받아와 post data class에 콜백을 받는다.
-    
-    @GET("posts/{number}")
-    fun getPostNumber(
-        @Path("number") number : Int
-    ) : Call<Post>
-
-여기 부분에서 헷갈렸는데 uid,id,title 등 있지만 어떤 값을 리턴 받는지 궁금해서 Log를 찍어 확인했습니다.
-결과로 number은 ID값을 받아와 body.toString()으로 그 인덱스에 있는 값을 가져오는것이었습니다.
-
-마지막으로 비동기적 실행에서 코드를 간소화하고 최소화하기 위해서 Coroutine을 사용한다는것을 알았습니다,
-다음 예제를 통해서 학습을 할 예정
-
+https://www.inflearn.com/course/%EC%B9%9C%EC%A0%88%ED%95%9C-jetpack-1/dashboard
