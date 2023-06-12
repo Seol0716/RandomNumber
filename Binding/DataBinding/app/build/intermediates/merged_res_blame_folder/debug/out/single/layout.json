@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.databinding.app-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "com.example.databinding.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.databinding.app-mergeDebugResources-33:/layout/fragment_test_fragment.xml",
+        "source": "com.example.databinding.app-main-36:/layout/fragment_test_fragment.xml"
+    },
+    {
+        "merged": "com.example.databinding.app-mergeDebugResources-33:/layout/second_layout.xml",
+        "source": "com.example.databinding.app-main-36:/layout/second_layout.xml"
+    }
+]
