@@ -1,40 +1,38 @@
 
- ****인프런에서 안드로이드 JETPACK 개론 <상>의 동영상을 참고하여 Retrofit 개념을 공부하고 있습니다.****
+<h1>Jetpack 라이브러리</h1>
  
- **1.Retrofit의 대해**
+ **참고**
  
- https://velog.io/@cksdn1092/Retrofit
+ https://www.inflearn.com/course/%EC%B9%9C%EC%A0%88%ED%95%9C-jetpack-1/dashboard
  
- **2.Retrofit의 사용법을 알기위한 간단한 예제 1~2**
+ <h3>Jetpack이란?</h3>
  
- 예제1
- 
- JSON Pleaceholder 사이트에서 무료로 제공하는 가상 Rest API 서버의 Posts 전체 데이터를 TextView로 받아와 화면에 보여지는 간단한 예제를 연습했습니다.
- 
- 예제2
- 
-Posts의 1번 데이터와  3번 데이터를 TextView로 화면에 보여지는 간단한 예제를 연습했습니다. 
- 
- **3.Retrofit의 CallBack Hell**
- 
- Log에서 순차적으로 "API1","API2", "API3", "API4"를 찍히는 연습을 하였습니다. 
- 불필요한 복잡한 로직의 문제점을 알게되었고, 이 과정에서 코루틴의 개념이 나온 배경을 알 수 있었습니다.
- 
- **4.코루틴 개념과 ViewModelScope에 대해**
- 
- 코루틴의 개념을 적용하여 예제를 연습했습니다. 또한 ViewModelScope는 안드로이드 생명주기와 같이 돌며 관리해주고 있다는 사실을 알게되었습니다.
- 
- **5.Retrofit 간단한 예제 변경**
- 
- Posts의 데이터를 ViewModel과 LiveData를 활용하여 TextView로 보여지는 예제를 연습을 했습니다.
- 
- **6.Retrofit 간단한 예제 변경 + RecyclerView**
- 
- ViewModel LiveData를 Recycler View와 결합하여 전체 데이터를 리스트로 보여지는 연습을 했습니다.
- 
- **7.Retrofit 간단한 예제 변경 + RecyclerView + Glide**
- 
- 간단한 과일 정보 어플리케이션을 만들었습니다.  
+ **개발자가 고품질 앱을 솝쉽게 개발할 수 있게 돕는 라이브러리, 도구, 가이드 모음이다.
+ androidx 패키지 라이브러리로 구성**
 
- **8.Retrofit 구조변경**
+<h4>Jetpack의 특징</h4>
+
+![jetpack](https://github.com/Seol0716/Jetpack/assets/60384142/ef7f6178-8669-4063-ad72-7520a1c61d30)
+
+<h3>구성요소</h3>
+
+**ViewBinding**
+
+**DataBinding**
+
+**ViewModel** 
+
+**LiveData**
+
+**Retrofit**
+
+**Room**
+
+**WorkManager**
+
+**Navigation**
+
+
+ 
+ 
  
