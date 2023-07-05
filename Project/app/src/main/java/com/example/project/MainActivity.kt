@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var linear : LinearLayout
     private lateinit var edit : EditText
     private lateinit var viewModel : MainViewModel
-
+    var num : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,9 +52,9 @@ class MainActivity : AppCompatActivity() {
         //데이터 입력 이벤트
         binding.createBtn.setOnClickListener{
 //            Log.d("test",binding.countData.text.toString())
-            var num : Int = binding.countData.text.toString().toInt()
+            num = binding.countData.text.toString().toInt()
 
-            for(i in 0.. num-1){
+            for(i in 1.. num){
                 linear.visibility = View.VISIBLE
 
                 //동적EditText 생성
@@ -66,8 +66,11 @@ class MainActivity : AppCompatActivity() {
                 editparams.topMargin = 40
                 editparams.gravity = Gravity.CENTER
                 edit.layoutParams = editparams
-                edit.id = i
+                edit.id = i;
                 linear.addView(edit)
+
+                Log.d("Test3",edit.id.toString())
+
             }
 
             viewModel.reset_count()
@@ -75,11 +78,16 @@ class MainActivity : AppCompatActivity() {
 
         //데이터 저장
         binding.checkBtn.setOnClickListener{
-            linear.removeAllViews()
             viewModel.reset_count()
 
-            viewModel.insert(edit.text.toString())
-            Log.d("Main",edit.text.toString())
+//            Log.d("Test2",num.toString())
+            for(i in 0..num){
+
+                edit = (linear.getChildAt(i) as EditText?)!!
+                Log.d("Test4",edit.text.toString())
+                Log.d("Test1",edit.id.toString())
+            }
+
         }
     }
 }
