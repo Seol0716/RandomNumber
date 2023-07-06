@@ -4,7 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.project.DataEntity.Data
+import com.example.project.DB.DataEntity.Data
+import java.util.concurrent.Flow
 
 
 //편의 메서드 추가 삭제
@@ -23,5 +24,10 @@ interface NameDao {
     //name_table 안에 있는 요소들을 삭제"
     @Query("DELETE FROM name_table")
     fun delete()
+
+
+    //조회
+    @Query("SELECT * FROM name_table")
+    fun getAll() : List<Data>
 
 }

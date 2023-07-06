@@ -2,7 +2,7 @@ package com.example.project.Repository
 
 import android.content.Context
 import com.example.project.DB.DB
-import com.example.project.DataEntity.Data
+import com.example.project.DB.DataEntity.Data
 
 
 //Repository
@@ -14,5 +14,7 @@ class Repository(context: Context) {
     fun insert(name : String) = db.name().insert(Data(0,name))
 
     fun delete() = db.name().delete()
+
+    fun getAll() = db.name().getAll()
 
 }

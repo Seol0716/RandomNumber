@@ -7,37 +7,39 @@ import android.view.Gravity
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.project.DB.DataEntity.Data
 import com.example.project.MainViewModel.MainViewModel
 import com.example.project.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
-    private lateinit var linear : LinearLayout
-    private lateinit var edit : EditText
-    private lateinit var viewModel : MainViewModel
-    var num : Int = 0
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var linear: LinearLayout
+    private lateinit var viewModel: MainViewModel
+    var num: Int = 0
+    private lateinit var data: Data
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-
-
-        //컴포넌트 초기화
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.getData()
+
         linear = findViewById(R.id.linear)
         //minus 기능
-        binding.minusBtn.setOnClickListener{
+        binding.minusBtn.setOnClickListener {
             viewModel.minus_count()
         }
 
         //플러스 기능
-        binding.plusBtn.setOnClickListener{
+        binding.plusBtn.setOnClickListener {
             viewModel.plus_count()
         }
 
@@ -50,15 +52,15 @@ class MainActivity : AppCompatActivity() {
         })
 
         //데이터 입력 이벤트
-        binding.createBtn.setOnClickListener{
+        binding.createBtn.setOnClickListener {
 //            Log.d("test",binding.countData.text.toString())
             num = binding.countData.text.toString().toInt()
 
-            for(i in 1.. num){
+            for (i in 1..num) {
                 linear.visibility = View.VISIBLE
 
                 //동적EditText 생성
-                edit = EditText(this)
+                var edit: EditText = EditText(this)
                 val editparams = LinearLayout.LayoutParams(
                     600, 130
                 )
@@ -68,26 +70,47 @@ class MainActivity : AppCompatActivity() {
                 edit.layoutParams = editparams
                 edit.id = i;
                 linear.addView(edit)
-
-                Log.d("Test3",edit.id.toString())
-
             }
-
-            viewModel.reset_count()
         }
 
-        //데이터 저장
-        binding.checkBtn.setOnClickListener{
+        //데이터 저장 이벤트
+        binding.checkBtn.setOnClickListener {
+
+            //초기화
             viewModel.reset_count()
 
-//            Log.d("Test2",num.toString())
-            for(i in 0..num){
+            for (i in 1..num) {
 
-                edit = (linear.getChildAt(i) as EditText?)!!
-                Log.d("Test4",edit.text.toString())
-                Log.d("Test1",edit.id.toString())
+                //linearLayout의 edittext id값을 불러온다
+                var et : EditText? = linear?.findViewById<EditText>(i)
+//
+                //그 값을 ROOM에 저장
+                viewModel.insert(et?.text.toString())
+                viewModel.getData()
+//                Log.d("Test9", et?.text.toString())
+
+                    }
+                }
+
+        //삭제버튼
+        binding.deleteBtn.setOnClickListener{
+            viewModel.reset_count()
+            viewModel.delete()
+        }
+
+        binding.getAllBtn.setOnClickListener{
+            viewModel.reset_count()
+            viewModel.getData()
+        }
+
+        binding.startBtn.setOnClickListener{
+            viewModel.nameData.observe(this, Observer {
+                val str : String = it.random().toString()
+                binding.winText.text = str
+            })
+        }
             }
 
+
         }
-    }
-}
+
