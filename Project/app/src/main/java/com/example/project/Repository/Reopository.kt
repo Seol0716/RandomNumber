@@ -13,8 +13,8 @@ class Repository(context: Context) {
 
     fun insert(name : String) = db.name().insert(Data(0,name))
 
-    fun delete() = db.name().delete()
-
     fun getAll() = db.name().getAll()
 
+    fun getDelete() = db.name().delete()
+    fun getName() = db.name().getName()
 }

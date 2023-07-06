@@ -30,4 +30,8 @@ interface NameDao {
     @Query("SELECT * FROM name_table")
     fun getAll() : List<Data>
 
+    //name 컬럼 데이터 불러오기
+    @Query("SELECT * FROM NAME_TABLE WHERE data")
+    fun getName() : List<Data>
+
 }

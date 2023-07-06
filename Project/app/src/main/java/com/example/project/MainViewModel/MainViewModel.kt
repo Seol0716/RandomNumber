@@ -9,7 +9,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.project.DB.DB
 import com.example.project.DB.DataEntity.Data
 import com.example.project.Repository.Repository
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.Random
 
@@ -23,6 +26,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
 
     val countData : LiveData<Int>
         get() = _countData
+
+    //랜덤 데이터
+    private var _randomData = MutableLiveData<String>("")
+    val randomData : LiveData<String>
+        get() = _randomData
 
     //마이너스
     fun minus_count() {
@@ -46,18 +54,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
 
 
     val repository = Repository(context)
-    fun insert(name : String) = viewModelScope.launch(Dispatchers.IO) {
+    fun insert(name : String) = CoroutineScope(Dispatchers.IO).launch {
         repository.insert(name)
     }
 
-    fun delete() = viewModelScope.launch(Dispatchers.IO) {
-        repository.delete()
+    fun getAll() = CoroutineScope(Dispatchers.IO).launch {
+        repository.getAll()
     }
 
-    fun getData() = viewModelScope.launch(Dispatchers.IO) {
-        Log.d("Test10",db.name().getAll().toString())
-        _nameData.postValue(repository.getAll())
+    fun getName() = CoroutineScope(Dispatchers.IO).launch() {
+        val name :String = repository.getName().random().name.toString()
+        _randomData.postValue(name)
     }
 
+    fun Delete() = CoroutineScope(Dispatchers.IO).launch {
+        repository.getDelete()
+    }
+    }
 
-}

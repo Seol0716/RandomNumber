@@ -27,10 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.getData()
 
         linear = findViewById(R.id.linear)
         //minus 기능
@@ -78,7 +75,6 @@ class MainActivity : AppCompatActivity() {
 
             //초기화
             viewModel.reset_count()
-
             for (i in 1..num) {
 
                 //linearLayout의 edittext id값을 불러온다
@@ -86,31 +82,32 @@ class MainActivity : AppCompatActivity() {
 //
                 //그 값을 ROOM에 저장
                 viewModel.insert(et?.text.toString())
-                viewModel.getData()
-//                Log.d("Test9", et?.text.toString())
 
+
+//                Log.d("Test9", et?.text.toString())
                     }
+
+            linear?.removeAllViews()
                 }
 
         //삭제버튼
         binding.deleteBtn.setOnClickListener{
             viewModel.reset_count()
-            viewModel.delete()
+            viewModel.Delete()
         }
 
-        binding.getAllBtn.setOnClickListener{
-            viewModel.reset_count()
-            viewModel.getData()
-        }
 
+        //랜덤이름뽑기
         binding.startBtn.setOnClickListener{
-            viewModel.nameData.observe(this, Observer {
-                val str : String = it.random().toString()
-                binding.winText.text = str
-            })
-        }
-            }
+            viewModel.getName()
+              }
 
+        //랜덤 name textVIew에 보이기
+        viewModel.randomData.observe(this, Observer {
+            binding.winText.text = it.toString()
+        })
+
+            }
 
         }
 
