@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="랜덤뽑기"
+            android:text="랜덤숫자뽑기"
             android:textSize="30dp"
             android:layout_gravity="center"
             android:layout_marginTop="80dp">
@@ -42,7 +42,8 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="90dp"
                 android:text="-"
-                android:textSize="30dp">
+                android:textSize="30dp"
+                android:background="@drawable/button_custom">
             </androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -63,7 +64,8 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="10dp"
                 android:text="+"
-                android:textSize="30dp">
+                android:textSize="30dp"
+                android:background="@drawable/button_custom">
             </androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -73,7 +75,8 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/create_btn"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:background="@drawable/button_custom">
 
             </androidx.appcompat.widget.AppCompatButton>
 
@@ -91,7 +94,8 @@
                 android:id="@+id/start_btn"
                 android:layout_gravity="center"
                 android:layout_marginLeft="70dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_custom">
             </androidx.appcompat.widget.AppCompatButton>
 
 
@@ -102,8 +106,8 @@
                 android:textSize="20dp"
                 android:id="@+id/check_btn"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                >
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_custom">
             </androidx.appcompat.widget.AppCompatButton>
 
 
@@ -114,8 +118,8 @@
                 android:textSize="20dp"
                 android:id="@+id/delete_btn"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                >
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_custom">
             </androidx.appcompat.widget.AppCompatButton>
 
         </LinearLayout>

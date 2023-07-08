@@ -19,7 +19,6 @@ import java.util.Random
 class MainViewModel(application: Application) : AndroidViewModel(application){
 
     val context = getApplication<Application>().applicationContext
-    val db = DB.getDatabase(context)
 
     //카운트 데이터 셋
     private var _countData = MutableLiveData<Int>(0)
@@ -56,10 +55,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     val repository = Repository(context)
     fun insert(name : String) = CoroutineScope(Dispatchers.IO).launch {
         repository.insert(name)
-    }
-
-    fun getAll() = CoroutineScope(Dispatchers.IO).launch {
-        repository.getAll()
     }
 
     fun getName() = CoroutineScope(Dispatchers.IO).launch() {

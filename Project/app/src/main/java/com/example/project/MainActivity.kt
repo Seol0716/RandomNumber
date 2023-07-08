@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                 editparams.gravity = Gravity.CENTER
                 edit.layoutParams = editparams
                 edit.id = i;
+                edit.setBackgroundResource(R.drawable.edittext_custom)
                 linear.addView(edit)
             }
         }
@@ -78,36 +79,32 @@ class MainActivity : AppCompatActivity() {
             for (i in 1..num) {
 
                 //linearLayout의 edittext id값을 불러온다
-                var et : EditText? = linear?.findViewById<EditText>(i)
-//
+                var et: EditText? = linear?.findViewById<EditText>(i)
+
                 //그 값을 ROOM에 저장
                 viewModel.insert(et?.text.toString())
 
-
-//                Log.d("Test9", et?.text.toString())
-                    }
-
-            linear?.removeAllViews()
-                }
-
-        //삭제버튼
-        binding.deleteBtn.setOnClickListener{
-            viewModel.reset_count()
-            viewModel.Delete()
-        }
-
-
-        //랜덤이름뽑기
-        binding.startBtn.setOnClickListener{
-            viewModel.getName()
-              }
-
-        //랜덤 name textVIew에 보이기
-        viewModel.randomData.observe(this, Observer {
-            binding.winText.text = it.toString()
-        })
-
+                linear?.removeAllViews()
             }
 
+            //삭제버튼
+            binding.deleteBtn.setOnClickListener {
+                viewModel.reset_count()
+                viewModel.Delete()
+            }
+
+
+            //랜덤이름뽑기
+            binding.startBtn.setOnClickListener {
+                viewModel.getName()
+            }
+
+            //랜덤 name textVIew에 보이기
+            viewModel.randomData.observe(this, Observer {
+                binding.winText.text = it.toString()
+            })
+
         }
+    }
+}
 
