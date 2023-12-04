@@ -12,6 +12,8 @@ fun main() {
     //인스턴스 초기화
     seq(10,20)
 
+    println(test6(1,2,3.4))
+
 }
 
 
@@ -67,8 +69,11 @@ fun test4(i : Int = 10, i2 : Int = 11){
 fun test5(i : Int, j : Int) {
     println("${i} ${j}")
     println("Unit 테스트 입니다")
-
 }
+
+
+//단일 표현식
+fun test6(a : Int, b : Int , c : Double) = a + b + c
 
 class seq {
     init {
