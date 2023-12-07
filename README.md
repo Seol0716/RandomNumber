@@ -141,10 +141,14 @@
 ## 5. 제어문
 
    ### IF문
+   [If문](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/if_else)
+   
    ### When
+   [When](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/when)
+   
    ### For문
+   [For문](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/loop)
+   
    ### 구문
-   - Break
-   - continue
-   - return
+   [구문](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/loop_study/loop_study2)
    
