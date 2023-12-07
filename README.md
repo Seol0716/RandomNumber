@@ -144,7 +144,7 @@
    [If문](https://github.com/Seol0716/Kotlin-basic/blob/main/pratice/control/if_else/if-else)
    
    ### When
-   [When](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/when)
+   [When](https://github.com/Seol0716/Kotlin-basic/blob/main/pratice/control/when/when)
    
    ### For문
    [For문](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/loop)
