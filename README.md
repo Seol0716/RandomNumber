@@ -137,3 +137,18 @@
    - 인스턴스를 생성시 추가적인 구문을 실핼 할 수 있게 해준다
    - constructor 함수를 만들경우 init 함수를 먼저 초기화 해야한다
    - init 함수와 달리 parameter 생성이 가능하고 arguments 지정이 가능하다
+
+## 5. 제어문
+
+   ### IF문
+   [If문](https://github.com/Seol0716/Kotlin-basic/blob/main/pratice/control/if_else/if-else)
+   
+   ### When
+   [When](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/when)
+   
+   ### For문
+   [For문](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/loop)
+   
+   ### 구문
+   [구문](https://github.com/Seol0716/Kotlin-basic/tree/main/pratice/control/loop_study/loop_study2)
+   
