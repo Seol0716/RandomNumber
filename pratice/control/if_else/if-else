@@ -1,5 +1,5 @@
 if-else
-코드와 개념을 정리하는 Readme 파일 입니다
+코드와 개념을 정리하는 파일
 
 자바와 동일하게 if - else if - else문 작성
 if문은 조건식의 값이 true일때 내부의 코드가 실행이 된다
@@ -30,7 +30,7 @@ val test : Int = 10
         println("10 입니다")
     }
 
-//if문의 조건식이 거짓일때
+//if문의 조건거짓일때
     else {
         println("10이 아닙니다")
     }
@@ -59,3 +59,14 @@ if(test == 5){
         println("5, 10도 아닙니다")
     }
 
+//단일 함수로 if문을 활용할 수도 있다
+
+ val test6  : Int = 50
+    val test7 : Int = 60
+    val test_str : String = if (test6 > 50) "50보다 큽니다" else "50보다 작습니다"
+
+    println(test_str)
+
+    val test_str2 : String = if(test6 == 10 && test7 == 60) "true입니다" else "false 입니다"
+
+    println(test_str2)
