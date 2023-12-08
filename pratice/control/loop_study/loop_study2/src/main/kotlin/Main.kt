@@ -1,5 +1,6 @@
 fun main() {
 
+    val test : Int = 10
     //return return은 값을 되돌려 받는게 아니라
     //수행중인 함수를 종료하는 구문
     //반환 값이 있을경우 함수를 종료한 다음 반환 값을 작성
@@ -37,6 +38,25 @@ fun main() {
         }
         println("item : ${item}")
     }
+
+
+    //else 문 : 조건식이 false일때 실행
+    if(test == 10){
+        println("10 입니다")
+    }
+
+    else {
+        println("10이 아닙니다")
+    }
+
+    if(test == 20){
+        println("20입니다")
+    }
+
+    else {
+        println("20이 아닙니다")
+    }
+
 
 }
 
