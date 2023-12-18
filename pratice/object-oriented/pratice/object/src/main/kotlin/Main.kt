@@ -19,9 +19,16 @@ fun main() {
 
     println("tst4.name : ${tst4.name}");
     println("tst4.age : ${tst4.age}");
+//
+//    val p = Person("홍길동")
+//    var person = Person("김루피",11,"010-1111-2222")
 
-    val p = Person("홍길동")
-    var person = Person("김루피",11,"010-1111-2222")
+    println("---------------------------------------------------------")
+    val person1 = person("설찬우",27)
+    val person2 = person("홍길동", 15, "010-1111-2222")
+
+    println("${person1.name} ${person1.age}")
+    println("${person2.name} ${person2.age} ${person2.phoneNumber}")
 }
 
 
@@ -35,26 +42,39 @@ class Person(name : String) {
         this.name = name
         this.age = 0
         this.phoneNumber = " "
-        println("${name} ${age}")
     }
 
     constructor(name : String, age : Int , phoneNumber: String) : this(name){
         println("보조 생성자 실행")
-        println("${name} ${age} ${phoneNumber}")
 
     }
 
 }
+//
+//class person(val name : String, val age : Int, val phonenumber : String){
+//
+//    init {
+//        this.name
+//        this.age
+//        this.phonenumber
+//    }
+//}
 
-class person(val name : String, val age : Int, val phonenumber : String){
+//타입을 지정하면 멤버변수로 되기 때문에 따로 멤버변수 선언을 하지 않아도 된다
+
+class person(val name : String, val age : Int){
+    var phoneNumber = ""
 
     init {
         this.name
         this.age
-        this.phonenumber
     }
 
+    //보조 생성자가 실행되기전 주 생성자가 먼저 초기화를 하고 실행된다
+    constructor(name : String, age : Int, phoneNumber: String) : this(name,age) {
+        this.phoneNumber = phoneNumber
 
+    }
 }
 class x {
 
@@ -75,7 +95,6 @@ class x {
 
     //constructor
     //constructor는 매개변수와 자료형을 사용하여 여러개 만들 수 있다
-
 
     constructor() {
         println("매개변수가 없는 생성자")
