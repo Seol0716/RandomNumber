@@ -13,7 +13,7 @@ import com.example.project.DB.DataEntity.Data
 //조건 
 //1. @Database 키워드를 선언하고 entity 클래스를 정의해야한다
 //2. RoomDatabase 추상 클래스 선언
-//3. Dao 클래스에서 DB 클래스 인수가 0개여야 하고
+//3. Dao 클래스에서 DB 클래스에 대해 정의를 하지 않아야한다
 // Dao 클래스의 인스턴스를 반환하는 추상 메서드를 정의해야한다
 
 @Database(entities = [Data::class], version = 1)
