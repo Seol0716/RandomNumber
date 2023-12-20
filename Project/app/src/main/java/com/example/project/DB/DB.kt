@@ -8,7 +8,7 @@ import com.example.project.Dao.NameDao
 import com.example.project.DB.DataEntity.Data
 
 
-//연결된 데이터 항목을 모두 나열하는 entity 클래스도 배열에 포함
+//Room db와 연결
 @Database(entities = [Data::class], version = 1)
 
 abstract class DB : RoomDatabase() {
