@@ -6,3 +6,5 @@
 
 ### [투포인터]
 
+### static
+https://velog.io/@cksdn1092/static 
