@@ -6,7 +6,6 @@
 
 ### [투포인터]
 
-### 브론즈 5 문제 다풀기 도전
+### [백준](https://github.com/Seol0716/TIL/tree/main/Bronze)
 
-### static
-https://velog.io/@cksdn1092/static 
+### [static](https://velog.io/@cksdn1092/static) 
