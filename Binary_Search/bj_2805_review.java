@@ -46,19 +46,42 @@ public class bj_2805_review {
 			}
 			
 			
-			//나무의 높이가 잘린나무의 높이보다 커야 하므로
-			//높이는 줄어드는게 아니라 최대로 설정
+//			//Upper Bound
+//			if(sum < M) {
+//			
+//				end = mid;
+//			}
+//			
+//			else {
+//				start = mid + 1;
+//			}
+			
+			//파라메트릭 서치
 			if(sum >= M) {
-				
 				start = mid + 1;
 			}
 			
-			else if(sum < M){
+			else {
 				end = mid - 1;
 			}
+			
+//			//Low Bound
+			//실패ㅠㅠ
+			//low bound는 최소값 다루는 문제에 활용
+//			if(sum <= M) {
+//				
+//				end = mid - 1;
+//				
+//			}
+//			
+//			else {
+//				start = mid + 1;
+//			}
+			
+			//테스트
+//			System.out.println(start + " " + end + " " + mid);
 		}
 		
 		System.out.println(end);		
-	
 	}
 }
