@@ -10,4 +10,6 @@
 
 ### [static](https://velog.io/@cksdn1092/static) 
 
-### [안드로이드 Compose]
+### Randomnumber
+
+
