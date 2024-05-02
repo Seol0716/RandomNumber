@@ -9,7 +9,7 @@ data class DataEntity(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id : Int,
-    @ColumnInfo(name = "data")
+    var id : Long = 0,
+    @ColumnInfo(name = "name")
     var name : String
 )

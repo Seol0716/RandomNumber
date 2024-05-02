@@ -1,23 +1,26 @@
 package com.example.mvvm_pratice.Model
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.example.mvvm_pratice.Room.DB
+import com.example.mvvm_pratice.Room.Dao
 import com.example.mvvm_pratice.Room.DataEntity
 
 //Dao 클래스와 상호작용하여
 //Room db와 데이터 전달 받음
 
     //Room과 상호작용
-    class Repository(context: Context) {
-        val db = DB.getDatabase(context)
+    class Repository(private val dao : Dao) {
 
-        fun insert(name : String) = db.name().insert(DataEntity(0,name))
-        fun getDelete() = db.name().delete()
 
-        fun getRandomCount(RandomIndex : Int) : Int {
+        fun insert(name : String) = dao.insert(DataEntity(0,name))
+        fun getDelete() = dao.delete()
 
-            return db.name().getRandomData(RandomIndex)
+        fun getNameById(id : Long) : LiveData<String> {
+            return dao.getNameById(id)
         }
 
-        fun getCount() : Int = db.name().getCount()
+        fun getRandomId() : Long {
+            return dao.getRandomId()
+        }
     }

@@ -48,6 +48,10 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        viewModel.name.observe(this) {
+            binding.winText.text = it.toString()
+        }
+
         //데이터 입력 이벤트
         binding.createBtn.setOnClickListener {
 //            Log.d("test",binding.countData.text.toString())
@@ -88,26 +92,19 @@ class MainActivity : AppCompatActivity() {
                 linear?.removeAllViews()
             }
 
-            //삭제버튼
-            binding.deleteBtn.setOnClickListener {
-                viewModel.reset_count()
-                viewModel.Delete()
-            }
+//            //삭제버튼
+//            binding.deleteBtn.setOnClickListener {
+//                viewModel.reset_count()
+//                viewModel.Delete()
+//            }
 
-
-            //랜덤이름뽑기
-            binding.startBtn.setOnClickListener {
-
-                //랜덤 데이터 뽑기
-                //전체 데이터를 받아와 랜덤으로 뽑아준다
-                val count = viewModel.getCount()
-
-                val random : Int = Random.nextInt(0,count)
-                //랜덤 name textVIew에 보이기
-                viewModel.randomData.observe(this, Observer {
-                    binding.winText.text = it.toString()
-                })
-            }
+//            //랜덤이름뽑기
+//            binding.startBtn.setOnClickListener {
+//
+//                viewModel.getRandomName()
+//                //랜덤 데이터 뽑기
+//                //전체 데이터를 받아와 랜덤으로 뽑아
+//            }
         }
     }
 }

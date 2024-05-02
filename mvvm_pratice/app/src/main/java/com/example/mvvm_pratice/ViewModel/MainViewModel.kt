@@ -4,6 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.mvvm_pratice.Model.Repository
 import com.example.mvvm_pratice.Room.DataEntity
 import kotlinx.coroutines.CoroutineScope
@@ -11,10 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class MainViewModel(application: Application) : AndroidViewModel(application){
+class MainViewModel(private val repository: Repository) : ViewModel() {
 
-    val context = getApplication<Application>().applicationContext
-    val repository = Repository(context)
 
     //카운트 데이터 셋
     private var _countData = MutableLiveData<Int>(0)
@@ -22,17 +23,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
     val countData : LiveData<Int>
         get() = _countData
 
-    //전체 카운터 셋
-    private var _all_count = MutableLiveData<Int>()
-
-    val all_count : LiveData<Int>
-        get() = _all_count
-
-    //랜덤카운터 셋
-    private var _randomCount = MutableLiveData<Int>()
-
-    val randomCount : LiveData<Int>
-        get() = _randomCount
+   private val _name = MutableLiveData<String>()
+    val name : LiveData<String>
+        get() = _name
 
 
     //마이너스
@@ -49,21 +42,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application){
         _countData.value = 0
     }
 
+    fun getRandomName() {
 
-    //전체 데이터 수
-    fun getCount() = CoroutineScope(Dispatchers.IO).launch {
-        repository.getCount()
-    }
-    fun getRandomCount(Random_index : Int) = CoroutineScope(Dispatchers.IO).launch {
-        val count = repository.getRandomCount(Random_index)
-        _randomCount.value = count
+        viewModelScope.launch {
+            val randomId = repository.getRandomId()
+            val name = repository.getNameById(randomId)
+            _name.postValue(name.toString())
+        }
     }
 
     fun insert(name : String) = CoroutineScope(Dispatchers.IO).launch {
         repository.insert(name)
     }
 
-    fun Delete() = CoroutineScope(Dispatchers.IO).launch {
-        repository.getDelete()
-    }
+//    fun Delete() = CoroutineScope(Dispatchers.IO).launch {
+//        repository.getDelete()
+//    }
 }

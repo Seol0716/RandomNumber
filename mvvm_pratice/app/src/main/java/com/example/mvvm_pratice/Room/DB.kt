@@ -31,7 +31,6 @@ abstract class DB : RoomDatabase() {
                 instance
             }
         }
-
     }
 
 }
