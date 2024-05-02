@@ -1,13 +1,8 @@
 
-## TlL
-### 쓸모없는 지식이란 없다고 생각합니다. 사소한 것이라도 배우기 위해 기록하고 정리하는 레지토리
-
-### [이분탐색](https://github.com/Seol0716/TIL/blob/main/Binary_Search/README.md)
-
-### [투포인터]
-
-### [백준](https://github.com/Seol0716/TIL/tree/main/Bronze)
-
-### [static](https://velog.io/@cksdn1092/static) 
-
-### [안드로이드 Compose]
+## RandomNumber 프로젝트
+### 5/1
+#### 기존에 만들었던 RandomNumber를 좀 더 보안하기로 했다
+#### 1.코드가 엉망인점
+#### 2.랜덤숫자뽑기 기능 : RoomDB에서 데이터를 원활히 받지 않았다
+#### 3.삭제 기능 이벤트시 종료
+#### 4. 동적 뷰X 리스트뷰 사용X
