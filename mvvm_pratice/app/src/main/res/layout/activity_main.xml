@@ -4,13 +4,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,107 +36,47 @@
             android:layout_marginTop="30dp"
             android:id="@+id/win_text">
         </TextView>
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/minus_btn"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="90dp"
-                android:text="-"
-                android:textSize="30dp"
-                android:background="@drawable/button_custom">
-            </androidx.appcompat.widget.AppCompatButton>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textSize="40dp"
-                android:id="@+id/count_data"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp">
-            </androidx.appcompat.widget.AppCompatTextView>
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/plus_btn"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"
-                android:text="+"
-                android:textSize="30dp"
-                android:background="@drawable/button_custom">
-            </androidx.appcompat.widget.AppCompatButton>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="생성"
-                android:textSize="20dp"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/create_btn"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/button_custom">
-
-            </androidx.appcompat.widget.AppCompatButton>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="뽑기"
-                android:textSize="20dp"
-                android:id="@+id/start_btn"
-                android:layout_gravity="center"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:id="@+id/edit"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/edittext_custom"
                 android:layout_marginLeft="70dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_custom">
-            </androidx.appcompat.widget.AppCompatButton>
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="저장"
-                android:textSize="20dp"
-                android:id="@+id/check_btn"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_custom">
-            </androidx.appcompat.widget.AppCompatButton>
-
+                android:hint="번호의 범위 입력"
+                android:textColorHint="@color/black">
+            </androidx.appcompat.widget.AppCompatEditText>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="삭제"
-                android:textSize="20dp"
-                android:id="@+id/delete_btn"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_custom">
+                android:layout_width="85dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_custom"
+                android:text="추가"
+                android:id="@+id/add_btn"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp">
             </androidx.appcompat.widget.AppCompatButton>
-
         </LinearLayout>
 
+<!--당첨자 리스트 확인-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/linear">
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycler">
+            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </LinearLayout>
-
 </layout>
