@@ -1,6 +1,7 @@
 package com.example.mvvm_pratice.ViewModel
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,25 +12,27 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 
 class MainViewModel :ViewModel() {
 
-    //뽑힌 번호
-    private var _winner = MutableLiveData<Int>()
+    var number : Int = 0;
 
-    val winner : LiveData<Int>
-        get() = _winner
-    
-    init {
-        _winner.value = 0
+    //뽑힌
+
+    //번호의 범위 저장
+    fun SetNumber( number : Int){
+        this.number = number
     }
 
-    //랜덤번호 뽑기
+    val _randomNumber = MutableLiveData<Int>()
 
-    fun getRandomNumber( number : Int){
+    val randomNumber : LiveData<Int>
+        get() = _randomNumber
 
-        val random_number = Random.nextInt(number)
-        _winner.value = random_number
+    //랜덤뽑기
+    fun getRandomNumber(){
+        _randomNumber.value = Random.nextInt(1..number)
     }
 }

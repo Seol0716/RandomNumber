@@ -6,13 +6,13 @@ import android.view.Gravity
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
-import androidx.databinding.DataBindingUtil
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
 import com.example.mvvm_pratice.Model.DataEntity
 import com.example.mvvm_pratice.ViewModel.MainViewModel
 import com.example.mvvm_pratice.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,8 +24,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        viewModel.randomNumber.observe(this){
+
+            binding.winText.text = it.toString()
+        }
+
+        //범위저장
+        binding.addBtn.setOnClickListener {
+            val test = binding.edit.text.toString().toInt()
+            viewModel.SetNumber(test)
+            binding.edit.text = null
+            Toast.makeText(this,"저장되었습니다",Toast.LENGTH_SHORT).show()
+        }
+
+        //뽑기
+        binding.randomBtn.setOnClickListener {
+                viewModel.getRandomNumber()
+        }
     }
 }
