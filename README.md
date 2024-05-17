@@ -8,12 +8,11 @@
 #### MVVM 패턴과 RecyclerView의 연결과 구조 이해
 
 ## 사용기술
-### ViewModel - RandomNumber 데이터 관리, Set,Get 함수를 설정
-### LiveData - randomNumber를 관찰하면서 실시간으로 확인하여 UI에 표시
-### MutableLiveData - 값이 변경이 가능 초기에 데이터를 저장하기 위해 필요
-### Repository - Model과 ViewModel 간에 독립적인 관계를 가지게 하기 위해 Repository가 Model을 관리, DB에 데이터를 요청하고 ViewModel에 데이터를 전송
-### Model - RoomDB의 데이터 저장, DB연동, 데이터 Set
-### RecyclerView - 리스트로 랜덤 값들을 보여짐
+### ViewModel 
+### LiveData 
+### Repository 
+### Model 
+### RecyclerView 
 
 ## 기능
 ### 랜덤번호를 뽑을 범위 지정 - EditText
