@@ -10,20 +10,24 @@
 #### 코틀린
 
 ## 사용기술
-### ViewModel 
-### LiveData 
-### Repository 
-### Model 
-### RecyclerView 
-### RoomDB
-### ViewBinding
-### Random 라이브러리
+#### ViewModel 
+#### LiveData 
+#### Repository 
+#### Model 
+#### RecyclerView 
+#### RoomDB
+#### ViewBinding
+#### Random 라이브러리
 
 ## 기능
 ### 범위설정 
 ### 뽑기 
 ### 당첨번호 리스트
 
-
 ## 배운점
-#### mvvm 패턴의 구조를 알게되서 좋았고 여러 기술들을 프로젝트에 적용해보는 연습을 할 수 있어서 좋았습니다. 
+### ViewModel
+#### ViewModel lifecycler은 액티비티 생명주기에 같이 활동을 하며 UI와 데이터의 상태를 관리한다.
+#### 1.UI 상태관리: 회전 및 화면 구성 변경에도 데이터를 유지
+#### 2.비지니스 로직 처리: ViewModel에서 View의 이벤트 및 기능을 ViewModel에서 구현을 하여 독립적인 상태 유지
+#### 3.비동기 작업 관리: ViewModel에서 구현된 기능내의 여러 작업을 처리할때 ViewModelscope,CoroutineScope을 구현해 처리
+#### 4.데이터 상태관리: UI의 데이터를 유지하고 상시 업데이트를 해준다: LiveData
