@@ -25,7 +25,7 @@
 ### 당첨번호 리스트
 
 ## 배운점
-### ViewModel
+### ViewModel의 역할
 #### ViewModel lifecycler은 액티비티 생명주기에 같이 활동을 하며 UI와 데이터의 상태를 관리한다.
 #### 1.UI 상태관리: 회전 및 화면 구성 변경에도 데이터를 유지
 #### 2.비지니스 로직 처리: ViewModel에서 View의 이벤트 및 기능을 ViewModel에서 구현을 하여 독립적인 상태 유지
